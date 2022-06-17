@@ -17,6 +17,13 @@ import (
 // operation, it will always succeed (as if it was submitted with a
 // LIBRADOS_OP_FLAG_FAILOK flag set) and is not guaranteed to do anything on
 // the backend.
+//
+// Implements:
+//  void rados_set_alloc_hint2(rados_ioctx_t io,
+//                             const char *o,
+//                             uint64_t expected_object_size,
+//                             uint64_t expected_write_size,
+//                             uint32_t flags);
 func (ioctx *IOContext) SetAllocationHint(oid string, expectedObjectSize uint64, expectedWriteSize uint64, flags AllocHintFlags) error {
 	coid := C.CString(oid)
 	defer C.free(unsafe.Pointer(coid))
