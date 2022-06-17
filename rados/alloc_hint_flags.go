@@ -9,6 +9,8 @@ import "C"
 type AllocHintFlags uint32
 
 const (
+	// AllocHintNoHint indicates no predefined behavior
+	AllocHintNoHint = AllocHintFlags(0)
 	// AllocHintSequentialWrite TODO
 	AllocHintSequentialWrite = AllocHintFlags(C.LIBRADOS_ALLOC_HINT_FLAG_SEQUENTIAL_WRITE)
 	// AllocHintRandomWrite TODO
